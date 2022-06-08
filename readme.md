@@ -51,5 +51,5 @@
 
 
 ## License
-License: [MIT License](https://opensource.org/licenses/MIT)
-Contributors: KenyaMasuko# codingset
+License: [MIT License](https://opensource.org/licenses/MIT)<br>
+Contributors: KenyaMasuko
