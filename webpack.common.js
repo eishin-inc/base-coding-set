@@ -2,6 +2,7 @@ const path = require("path");
 const { ProvidePlugin } = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 // webpack-watched-glob-entries-pluginインストール
 const WebpackWatchedGlobEntries = require("webpack-watched-glob-entries-plugin");
@@ -88,7 +89,7 @@ module.exports = ({ outputFile, assetFile, htmlMinifyOption }) => ({
     new ProvidePlugin({
       jQuery: "jquery",
       $: "jquery",
-      
+
     // オリジナル関数をimportしないで使用できる
       utils: [path.join(__dirname, "src/assets/js/utils/_utils.js"), "default"],
     }),
@@ -96,6 +97,14 @@ module.exports = ({ outputFile, assetFile, htmlMinifyOption }) => ({
     new WebpackWatchedGlobEntries(),
     // htmlを複数のエントリポイントで出力
     ...htmlGlobPlugins(entries, "./src"),
+    new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: path.join(__dirname, "./src/assets/images/favicons"),
+					to: "./assets/images/favicons",
+				},
+			],
+		}),
   ],
   // オプション
   optimization: {
@@ -120,7 +129,7 @@ module.exports = ({ outputFile, assetFile, htmlMinifyOption }) => ({
   },
   resolve: {
     alias: {
-      "@scss": path.join(__dirname, "src/assets/styles"),
+      "@scss": path.join(__dirname, "src/assets/styles/scss"),
       "@imgs": path.join(__dirname, "src/assets/images"),
     },
     extensions: [".js", ".scss"],

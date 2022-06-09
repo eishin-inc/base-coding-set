@@ -1,2 +1,5 @@
+// scssファイルをjsファイルにimportする
 import "@scss/style.scss";
-import * as module from '_module';
+import obj from './modules/_module';
+
+obj.log();

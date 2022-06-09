@@ -1,2 +1,8 @@
 @use '../foundation/variables' as *;
 @use '../foundation/mixin' as *;
+
+
+h1 {
+  font-size: 20rem;
+  text-align: center;
+}
