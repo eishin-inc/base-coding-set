@@ -127,6 +127,7 @@ module.exports = ({ outputFile, assetFile, htmlMinifyOption }) => ({
       },
     },
   },
+//wpのwebpackではaliasが使用できるような設定はしてないので注意。wpを組み込む予定なら使用しない
   resolve: {
     alias: {
       "@scss": path.join(__dirname, "src/assets/styles/scss"),
