@@ -1,5 +1,5 @@
 export default {
-  log() {
-    console.log('Hello from your module');
+  log(name) {
+    console.log('%c' + `Hello from ${name} module`, 'color:red; font-size: 24px;');
   }
 };
