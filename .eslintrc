@@ -1,21 +1,22 @@
 {
-  "env": {
-    "browser": true,
-    "es2017": true
-  },
-  "extends": "eslint:recommended",
-  "parser": "babel-eslint",
-  "parserOptions": {
-    // "ecmaVersion": 2017,
-    "sourceType": "module"
-  },
-  "globals": {
-    "jQuery": "readonly",
-    "$": "readonly"
-  },
-  "rules": {
-    "semi": ["warn", "always"],
-    "no-undef": "off",
-    "no-unused-vars": "off"
-  }
+	"env": {
+		"browser": true,
+		"es2017": true
+	},
+	"extends": "eslint:recommended",
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		// "ecmaVersion": 2017,
+		"sourceType": "module",
+		"requireConfigFile": false
+	},
+	"globals": {
+		"jQuery": "readonly",
+		"$": "readonly"
+	},
+	"rules": {
+		"semi": ["warn", "always"],
+		"no-undef": "off",
+		"no-unused-vars": "off"
+	}
 }
