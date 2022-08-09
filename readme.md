@@ -15,8 +15,15 @@
 
 1. 右上にある緑の code と書かれている箇所にある Donwload ZIP から ZIP ファイルをダウンロードして、解凍します。
 2. [Node.js](https://nodejs.org/ja/)の LTS 版をインストールします。インストーラーの指示に従って進んでいけば大丈夫です。
-3. Node.js がインストールできたらターミナルで `npm install --g yarn `を実行します。yarn がインストールできます。
+3. Node.js がインストールできたらターミナルで `npm install --g yarn`を実行します。yarn がインストールできます。
 4. yarn がインストールできたら、ダウンロードした ZIP ファイルを VScode で開きターミナルで`yarn install`を実行します。（ビルドに必要なモジュールをインストールしてくれます）
+
+### yarn のインストールがうまくいかない時
+
+`permission dined`などのエラーが出る時があります。（買ったばっかの Mac などよくある）<br />
+その場合は`npm install --g yarn`の先頭に`sudo`をつけて、`sudo npm install --g yarn`として実行してください。<br />
+その際に入力を求められるパスワードは PC 自身のパスワードです。<br />
+sudo コマンドについては自身で調べてみてください。
 
 ## webpack の設定について
 
