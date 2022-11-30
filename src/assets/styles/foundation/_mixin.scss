@@ -4,11 +4,20 @@
 @use './variables' as *;
 
 /* ===============================================
-# メディアクエリ
+# メディアクエリ用mixin
+
+使い方
+@include mq(ms) {
+  ...scssのコード
+}
+↓
+@media screen and (min-width: 520px) {
+  ...scssのコード
+}
 =============================================== */
 $breakpoint: (
-  sm: "screen and (max-width: 520px)",
-  lg: "screen and (max-width: 960px)",
+  sm: "screen and (min-width: 520px)",
+  lg: "screen and (min-width: 960px)",
 );
 
 @mixin mq($bp) {
@@ -17,27 +26,47 @@ $breakpoint: (
   }
 }
 
-/* ===============================================
-# z-index
-=============================================== */
-$z-index: (
-  header: 1000,
-);
 
-@mixin z-index($context) {
-  z-index: map-get($z-index, $context)
+/* ===============================================
+# XDデータからline-heightを計算するmixin
+
+使い方
+@include calcLineHeight(16, 24); → line-height: 1.5;
+=============================================== */
+@mixin calcLineHeight($pixels , $XDHeight) {
+  line-height: calc($height / $pixels);
 }
 
 /* ===============================================
-# line-height
+# XDデータからletter-spacingを計算するmixin
+
+使い方
+letter-spacing: calcLetterSpacing(100) → letter-spacing: 0.1em;
 =============================================== */
-@mixin l_height($pixels , $height) {
-	line-height: calc($height / $pixels);
+@function calcLetterSpacing($XDSpacing) {
+  @return calc($spacing / 1000)+em;
 }
 
 /* ===============================================
-# letter-spacing
+# line-heightの不要な余白を打ち消す
+
+使い方
+@include cutExtraLineHeight(100);
 =============================================== */
-@mixin l_spacing($spacing) {
-	letter-spacing: calc($spacing / 1000 ) + em;
+@mixin cutExtraLineHeight($line-height) {
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: calc((1 - calcLetterSpacing(#{$line-height})) * .5em);
+    content: "";
+  }
+
+  &::after {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-bottom: calc((1 - calcLetterSpacing(#{$line-height})) * .5em);
+    content: "";
+  }
 }
