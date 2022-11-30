@@ -7,7 +7,7 @@
 # メディアクエリ用mixin
 
 使い方
-@include mq(ms) {
+@include mq(sm) {
   ...scssのコード
 }
 ↓
@@ -29,26 +29,30 @@ $breakpoint: (
 
 /* ===============================================
 # XDデータからline-heightを計算するmixin
+@param Number $pixels 文字サイズ
+@param Number $XDHeight XD上のline-height
 
 使い方
 @include calcLineHeight(16, 24); → line-height: 1.5;
 =============================================== */
 @mixin calcLineHeight($pixels , $XDHeight) {
-  line-height: calc($height / $pixels);
+  line-height: calc($XDHeight / $pixels);
 }
 
 /* ===============================================
 # XDデータからletter-spacingを計算するmixin
+@param Number XD上のletter-spacing
 
 使い方
 letter-spacing: calcLetterSpacing(100) → letter-spacing: 0.1em;
 =============================================== */
 @function calcLetterSpacing($XDSpacing) {
-  @return calc($spacing / 1000)+em;
+  @return calc($XDSpacing / 1000)+em;
 }
 
 /* ===============================================
 # line-heightの不要な余白を打ち消す
+@param Number XD上のline-height
 
 使い方
 @include cutExtraLineHeight(100);
