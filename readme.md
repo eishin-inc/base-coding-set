@@ -21,7 +21,7 @@
 ### yarn のインストールがうまくいかない時
 
 `permission dined`などのエラーが出る時があります。（買ったばっかの Mac などよくある）<br />
-その場合は`npm install --g yarn`の先頭に`sudo`をつけて、`sudo npm install --g yarn`として実行してください。<br />
+その場合は`npm install -g yarn`の先頭に`sudo`をつけて、`sudo npm install --g yarn`として実行してください。<br />
 その際に入力を求められるパスワードは PC 自身のパスワードです。<br />
 sudo コマンドについては自身で調べてみてください。
 
